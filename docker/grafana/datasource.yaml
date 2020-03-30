@@ -1,0 +1,30 @@
+apiVersion: 1
+
+deleteDatasources:
+  - name: influxdb
+    orgId: 1
+
+datasources:
+- name: ping
+  type: influxdb
+  access: proxy
+  orgId: 1
+  url: http://influxdb:8086
+  password:
+  user:
+  database: ping
+  basicAuth:
+  basicAuthUser:
+  basicAuthPassword:
+  withCredentials:
+  isDefault: True
+  jsonData:
+     graphiteVersion: "1.1"
+     tlsAuth: false
+     tlsAuthWithCACert: false
+  secureJsonData:
+    tlsCACert: "..."
+    tlsClientCert: "..."
+    tlsClientKey: "..."
+  version: 1
+  editable: false

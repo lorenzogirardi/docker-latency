@@ -1,0 +1,40 @@
+---
+version: '2.3'
+
+services:
+  telegraf:
+    container_name: telegraf
+    image: telegraf:1.14.0
+    environment:
+      - HOST_PROC=/host/proc
+    privileged: true
+    network_mode: host
+    volumes:
+      - /proc:/host/proc:ro
+      - ./docker/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf
+
+  influxdb:
+    container_name: influxdb
+    image: influxdb:1.7.10
+    ports:
+      - "8086:8086"
+    environment:
+      INFLUXDB_DB: ${INFLUXDB_DATABASE}
+    volumes:
+      - ./docker/influxdb/influxdb.conf:/etc/influxdb/influxdb.conf
+      - ./influxdb-data:/var/lib/influxdb
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:6.7.1
+    user: "root"
+    environment:
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_USER}
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD}
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./docker/grafana/datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
+      - ./docker/grafana/dashboard.yaml:/etc/grafana/provisioning/dashboards/dashboard.yaml
+      - ./docker/grafana/Dashboard-PING.json:/var/lib/grafana/dashboards/Dashboard-PING.json
+      - ./grafana-data:/var/lib/grafana
