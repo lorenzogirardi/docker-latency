@@ -43,7 +43,7 @@ your datacenter/office public ip , the main dns servers and so on
 │   │   └── datasource.yaml
 │   ├── influxdb
 │   │   ├── influxdb.conf
-│   │   └── types.db
+│   │   
 │   └── telegraf
 │       └── telegraf.conf
 ├── docker-compose.yml
