@@ -16,7 +16,7 @@ logs:
 	$(COMPOSE) logs --tail 50 -f
 
 clean:
-        $(COMPOSE) down
-   	rm -rf influxdb-data
+	$(COMPOSE) down
+	rm -rf influxdb-data
 	rm -rf grafana-data
 	$(COMPOSE) rm --stop --force
