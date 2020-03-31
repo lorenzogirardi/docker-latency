@@ -125,7 +125,7 @@ you will have all details about the endpoint chosen , packet loss especially
 
 ![grafana_ping](https://res.cloudinary.com/ethzero/image/upload/v1585595824/misc/grafana_ping.png)  
 
-100% packet loss simulated disabling network card for 1m.  
+100% packet loss simulated disabling network card for few seconds.  
 The dashboard is using variables in order to create 1 row for each endpoint.  
 
 
