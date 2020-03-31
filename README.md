@@ -117,7 +117,7 @@ login to:
 
 you will see 
 
-![grafana_home](https://res.cloudinary.com/ethzero/image/upload/c_scale,w_640/v1585595313/misc/grafana_home.png)  
+![grafana_home](https://res.cloudinary.com/ethzero/image/upload/v1585641252/misc/grafana_home.png)  
 
 than , checking for the only board present --> *internet latency*  
 
