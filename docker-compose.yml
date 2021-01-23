@@ -4,7 +4,7 @@ version: '2.3'
 services:
   telegraf:
     container_name: telegraf
-    image: telegraf:1.14.0
+    image: telegraf:1.17.0
     environment:
       - HOST_PROC=/host/proc
     privileged: true
@@ -15,7 +15,7 @@ services:
 
   influxdb:
     container_name: influxdb
-    image: influxdb:1.7.10
+    image: influxdb:1.8.3
     ports:
       - "8086:8086"
     environment:
@@ -26,7 +26,7 @@ services:
 
   grafana:
     container_name: grafana
-    image: grafana/grafana:6.7.1
+    image: grafana/grafana:7.3.7
     user: "root"
     environment:
       GF_SECURITY_ADMIN_USER: ${GRAFANA_USER}
